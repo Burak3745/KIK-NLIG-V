@@ -8,7 +8,27 @@
     ],
     "routes": [
         {
-            "src": "(.*)",
+            "src": "/api/(.*)",
+            "dest": "Routers/userRouter.js"
+        },
+        {
+            "src": "/movie/(.*)",
+            "dest": "Routers/movieRouter.js"
+        },
+        {
+            "src": "/series/(.*)",
+            "dest": "Routers/seriesRouter.js"
+        },
+        {
+            "src": "/posts/(.*)",
+            "dest": "Routers/postRouter.js"
+        },
+        {
+            "src": "/actors/(.*)",
+            "dest": "Routers/actorsRouter.js"
+        },
+        {
+            "src": "/(.*)",
             "dest": "server.js"
         }
     ]
