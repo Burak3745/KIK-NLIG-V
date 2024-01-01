@@ -63,9 +63,10 @@ const ActorsCombo = ({ handleMovieSelect }) => {
             title="Oyuncular"
             id="dropdown-menu-align-top"
             onSelect={handleMovieSelect}
+            style={{width:"110px"}}
         >
             <div className="float-child">
-                <div className="box">
+                <div className="box" >
                     <form name="search">
                         <input
                             type="text"
@@ -104,7 +105,7 @@ const ActorsCombo = ({ handleMovieSelect }) => {
             {filteredRecords.length > 0 ?
                 <ul className="pagination">
                     <li className="page-item ">
-                        <a href="#" className="page-link" onClick={prePage}>
+                        <a style={{cursor:"pointer"}} className="page-link" onClick={prePage}>
                             Önce
                         </a>
                     </li>
@@ -113,13 +114,13 @@ const ActorsCombo = ({ handleMovieSelect }) => {
                             className={`page-item ${currentPage === n ? "active" : ""}`}
                             key={i}
                         >
-                            <a href="#" className="page-link" onClick={() => changeCPage(n)}>
+                            <a style={{cursor:"pointer"}} className="page-link" onClick={() => changeCPage(n)}>
                                 {n}
                             </a>
                         </li>
                     ))}
                     <li className="page-item">
-                        <a href="#" className="page-link" onClick={nextPage}>
+                        <a style={{cursor:"pointer"}} className="page-link" onClick={nextPage}>
                             Sonra
                         </a>
                     </li>

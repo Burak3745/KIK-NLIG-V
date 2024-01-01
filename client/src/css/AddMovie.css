@@ -6,13 +6,12 @@
 .float-child {
     width: 35%;
     float: left;
-    padding: 20px;
 }
 
 .float-child .blue {
     min-height: 550px;
     height: 100%;
-    width: 800px;
+    width: 840px;
     background-color: rgb(6, 0, 29);
 
     border-radius: 25px;
@@ -111,8 +110,8 @@
     min-height: 56px;
     min-width: 120px;
     padding: 16px 20px;
-    position: absolute;
-    left: 920px;
+    position: relative;
+    left: 40%;
     text-align: center;
     user-select: none;
     -webkit-user-select: none;
@@ -132,6 +131,7 @@
         padding: 16px 44px;
         min-width: 150px;
     }
+    
 }
 
 
@@ -387,3 +387,54 @@
         font-size: 16px;
     }
 }
+
+
+@media (max-width: 768px) {
+    .float-child {
+      width: 100%; /* Ekran genişliğinin tamamını kaplasın */
+      float: none; /* Float'ı kaldır */
+      padding: 10px; /* Daha dar bir iç kenar boşluğu */
+    }
+  
+    .float-child .blue {
+      width: 100%; /* Ekran genişliğinin tamamını kaplasın */
+      min-height: auto; /* Minimum yüksekliği kaldır */
+      border-radius: 0; /* Köşe yuvarlamasını kaldır */
+    }
+  
+    .float-child .blue .flex-container .form__group {
+      width: 100%; /* Genişliği tam ekran genişliği kadar olsun */
+    }
+  
+    .float-child .blue .button-66 {
+      left: 50%; /* Orta pozisyon için */
+      transform: translateX(-50%); /* Orta pozisyon için */
+      width: 80%; /* Genişliği daha düzgün bir şekilde ayarlayın */
+    }
+  
+    /* Diğer mobil uyumluluk ayarları buraya eklenir */
+  }
+
+  @media (min-width: 768px) and (max-width: 1250px) {
+    .float-child {
+        width: 100%;
+        float: none;
+        padding: 8px;
+    }
+    .float-child .blue {
+      width: 100%; /* Ekran genişliğinin %80'ini kaplasın */
+      margin: 0 auto; /* Ortala */
+    }
+  
+    .float-child .blue .flex-container .form__group {
+      width: 100%; /* Genişliği tam ekran genişliğinin %80'i kadar olsun */
+    }
+  
+    .float-child .blue .button-66 {
+      left: 50%; /* Orta pozisyon için */
+      transform: translateX(-50%); /* Orta pozisyon için */
+      width: 60%; /* Genişliği daha düzgün bir şekilde ayarlayın */
+    }
+  
+    /* Diğer tablet uyumluluk ayarları buraya eklenir */
+  }

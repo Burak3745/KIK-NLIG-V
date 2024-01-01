@@ -23,7 +23,7 @@ const MovieList = () => {
     }, [dispatch]);
 
     const [currentPage, setCurrentPage] = useState(1)
-    const recordsPerPage = 5;
+    const recordsPerPage = 4;
     const lastIndex = currentPage * recordsPerPage;
     const firstIndex = lastIndex - recordsPerPage;
     const records = movie.filter((item) => {
@@ -113,52 +113,47 @@ const MovieList = () => {
                                 <thead className='text-light'>
                                     <th>IMAGE</th>
                                     <th>NAME</th>
-                                    <th>CATAGORY</th>
-                                    <th className='px-2'>COUNTRY</th>
-                                    <th>YEAR</th>
-                                    <th>TIME</th>
                                     <th>ACTIONS</th>
                                 </thead>
                                 <tbody className='text-muted'>
                                     {records.map((d, i) => (
                                         <tr key={i}>
-                                            <motion.div variants={imageanimations} initial="hidden" animate="show">
-                                                <div className='bg-image hover-zoom'>
-                                                    <Card.Img variant="top" src={d.image} />
+                                            <td>
+                                            <motion.div variants={imageanimations}  initial="hidden" animate="show">
+                                                <div className='bg-image hover-zoom' >
+                                                    <Card.Img variant="top"  src={d.image} />
                                                 </div>
                                             </motion.div>
+                                            </td>
                                             <td ><br/><div style={{ position: "relative", cursor: "pointer" }} onClick={() => playMovie(d._id)}>{d.name}</div></td>
-                                            <td><br/>{d.catagory}</td>
-                                            <td ><br/>{d.country}</td>
-                                            <td><br/>{d.year}</td>
-                                            <td><br/>{d.time}</td>
-                                            <td><div style={{ position: "absolute", color: "#2dffb9", cursor: "pointer" }} onClick={() => dashboardMovie(d._id)}><MdDashboard /> Dashboard</div><br />
-                                                <div style={{ position: "absolute", color: "#2dffb9", cursor: "pointer" }} onClick={() => updateMovie(d._id)}><MdBrowserUpdated /> Edit</div><br />
-                                                <div style={{ position: "absolute", color: "#2dffb9", cursor: "pointer" }} onClick={() => deleteMovie(d._id)}><RiDeleteBin5Fill /> Delete</div>
+                                           
+                                            <td><div style={{ position:"relative", color: "#2dffb9", cursor: "pointer" }} onClick={() => dashboardMovie(d._id)}><MdDashboard /> Dashboard</div>
+                                                <div style={{ position:"relative", color: "#2dffb9", cursor: "pointer" }} onClick={() => updateMovie(d._id)}><MdBrowserUpdated /> Edit</div>
+                                                <div style={{ position:"relative", color: "#2dffb9", cursor: "pointer" }} onClick={() => deleteMovie(d._id)}><RiDeleteBin5Fill /> Delete</div>
                                             </td>
                                         </tr>
                                     ))}
                                 </tbody>
                             </Table>
-                            <nav style={{ position: "absolute", left: "850px", top: "680px" }}>
+                            <div style={{ display:"flex", alignItems:"center", justifyContent:"center" }}>
                                 <ul className='pagination'>
                                     <li className='page-item '>
-                                        <a href='#' className='page-link' onClick={prePage}>Prev</a>
+                                        <a style={{cursor:"pointer"}} className='page-link' onClick={prePage}>Prev</a>
 
                                     </li>
                                     {
                                         numbers.map((n, i) => (
                                             <li className={`page-item ${currentPage === n ? 'active' : ''}`} key={i}>
-                                                <a href='#' className='page-link' onClick={() => changeCPage(n)}>{n}</a>
+                                                <a style={{cursor:"pointer"}} className='page-link' onClick={() => changeCPage(n)}>{n}</a>
                                             </li>
                                         ))
                                     }
                                     <li className='page-item'>
-                                        <a href='#' className='page-link' onClick={nextPage}>Next</a>
+                                        <a style={{cursor:"pointer"}} className='page-link' onClick={nextPage}>Next</a>
 
                                     </li>
                                 </ul>
-                            </nav>
+                            </div>
                         </div>
 
                     </div>

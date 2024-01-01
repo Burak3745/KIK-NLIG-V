@@ -79,29 +79,28 @@ const MovieList = ({ user, setUser }) => {
                         <div class="blue">
                             <Table >
                                 <thead className='text-light'>
-                                    <th>FULLNAME</th>
-                                    <th>E-MAIL</th>
-                                    <th >USERTYPE</th>
-                                    <th>PHONENUMBER</th>
-                                    <th>ACTIONS</th>
+                                    <th className='mx-2'>FULLNAME</th>
+                                    <th className='mx-2'>E-MAIL</th>
+                                    <th className='mx-2' >USERTYPE</th>
+                                    <th className='mx-2'>ACTIONS</th>
                                 </thead>
                                 <tbody className='text-muted'>
                                     {records
                                         .map((d, i) => (
-                                            <tr key={i} style={{ height: "60px" }}>
+                                            <tr key={i}>
                                                 <td >{d.fullname}</td>
                                                 <td>{d.email}</td>
                                                 <td>{d.userType}</td>
-                                                <td>{d.phoneNumber}</td>
-                                                <td><div style={{ position: "absolute", color: "#2dffb9", cursor: "pointer" }} onClick={(e) => {
-                                                    e.preventDefault()
-                                                    dispatch(updateUserAction(d._id, adminData))
-                                                }}>
+                                                <td>
+                                                    <div style={{ position: "relative", color: "#2dffb9", cursor: "pointer" }} onClick={(e) => {
+                                                        e.preventDefault()
+                                                        dispatch(updateUserAction(d._id, adminData))
+                                                    }}>
 
-                                                    <RiAdminFill /> ADMIN
+                                                        <RiAdminFill /> ADMIN
 
-                                                </div> <br />
-                                                    <div style={{ position: "absolute", color: "#2dffb9", cursor: "pointer" }} onClick={(e) => {
+                                                    </div>
+                                                    <div style={{ position: "relative", color: "#2dffb9", cursor: "pointer" }} onClick={(e) => {
                                                         e.preventDefault()
                                                         dispatch(updateUserAction(d._id, userData))
                                                     }}>
@@ -114,25 +113,25 @@ const MovieList = ({ user, setUser }) => {
                                         ))}
                                 </tbody>
                             </Table>
-                            <nav style={{ position: "absolute", left: "850px", top: "680px" }}>
+                            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                 <ul className='pagination'>
                                     <li className='page-item '>
-                                        <a href='#' className='page-link' onClick={prePage}>Prev</a>
+                                        <a style={{ cursor: "pointer" }} className='page-link' onClick={prePage}>Prev</a>
 
                                     </li>
                                     {
                                         numbers.map((n, i) => (
                                             <li className={`page-item ${currentPage === n ? 'active' : ''}`} key={i}>
-                                                <a href='#' className='page-link' onClick={() => changeCPage(n)}>{n}</a>
+                                                <a style={{ cursor: "pointer" }} className='page-link' onClick={() => changeCPage(n)}>{n}</a>
                                             </li>
                                         ))
                                     }
                                     <li className='page-item'>
-                                        <a href='#' className='page-link' onClick={nextPage}>Next</a>
+                                        <a style={{ cursor: "pointer" }} className='page-link' onClick={nextPage}>Next</a>
 
                                     </li>
                                 </ul>
-                            </nav>
+                            </div>
                         </div>
 
                     </div>

@@ -70,7 +70,7 @@ app.get('/api/details/:id', (req, res) => {
     
 })
 
-app.listen(5003, () => {
+app.listen(5221, () => {
     // connect to database
     mongoose
       .connect(process.env.DB_CONNECTION_STRING)
