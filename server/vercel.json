@@ -8,7 +8,7 @@
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
+            "src": "/users/(.*)",
             "dest": "Routers/userRouter.js"
         },
         {
@@ -26,6 +26,10 @@
         {
             "src": "/actors/(.*)",
             "dest": "Routers/actorsRouter.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "server.js"
         }
     ]
 }
