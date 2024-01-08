@@ -139,34 +139,34 @@ const FilmDiziSearch = () => {
           if (catagory === '') return item
           else
             return catagory && item.catagory.toLowerCase().includes(catagory.toLowerCase())
-        }).length === 0 ? (<h3>Dizi Bulunamadı</h3>):(
-      <Carousel
-        responsive={responsive}
-      >
-        {movie.filter((item) => {
-          if (item.type === "Dizi") { return item }
-          else {
-            return
-          }
-        })
-          .filter((item) => {
-            if (search == 0) { return item }
+        }).length === 0 ? (<h3>Dizi Bulunamadı</h3>) : (
+        <Carousel
+          responsive={responsive}
+        >
+          {movie.filter((item) => {
+            if (item.type === "Dizi") { return item }
             else {
-              return search.toLowerCase() === '' ? item : item.name.toLowerCase().includes(search.toLowerCase())
+              return
             }
           })
-          .filter(item => {
-            if (catagory === '') return item
-            else
-              return catagory && item.catagory.toLowerCase().includes(catagory.toLowerCase())
-          })
+            .filter((item) => {
+              if (search == 0) { return item }
+              else {
+                return search.toLowerCase() === '' ? item : item.name.toLowerCase().includes(search.toLowerCase())
+              }
+            })
+            .filter(item => {
+              if (catagory === '') return item
+              else
+                return catagory && item.catagory.toLowerCase().includes(catagory.toLowerCase())
+            })
 
-          .map((movie) => (
-            <MovieCard movie={movie} />
-          ))}
-      </Carousel>
-    
-          )}
+            .map((movie) => (
+              <MovieCard movie={movie} />
+            ))}
+        </Carousel>
+
+      )}
 
 
 

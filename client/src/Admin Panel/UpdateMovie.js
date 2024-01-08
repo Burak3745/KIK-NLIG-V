@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SideBar from './SideBar'
 import '../css/AddMovie.css'
-import Form from 'react-bootstrap/Form';
 import { Navigate, useNavigate, useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux'
 import ReactFileBase64 from 'react-file-base64'
